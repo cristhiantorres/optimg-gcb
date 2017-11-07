@@ -17,13 +17,24 @@
     <style>
     html, body {
         background-color: #fff;
-        color: #636b6f;
+        /*color: #636b6f;*/
         /*font-family: 'Raleway', sans-serif;*/
-        font-weight: 100;
+        /*font-weight: 100;*/
         height: 100vh;
         margin: 0;
     }
-
+    .barcode-container {
+        margin: 20px;
+        /*font-size: 18px;*/
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 0; 
+        font-size: 12px;
+    }
+    p strong { 
+        font-size: 12px;
+    }
     .full-height {
         height: 100vh;
     }
@@ -91,21 +102,39 @@
             </form>
             {{  isset($directorio)?$directorio:'' }}
             <br>
-            <form action="{{ route('getcodebar') }}" method="GET" class="">
-                <div class="form-group">
-                    <input type="text" id="code1" class="form-control" name="code1" placeholder="Ingrese su codigo 1" required>
+            <form action="{{ route('getcodebar') }}" method="GET" class="row">
+                <div class="col-md-6">
+                    <h4>Label 1</h4>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="descripcion1" placeholder="Descripcion 1" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="code1" class="form-control" name="code1" placeholder="Codigo 1" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="code2" class="form-control" name="code2" placeholder="Codigo 2" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" id="code2" class="form-control" name="code2" placeholder="Ingrese su codigo 2" required>
-                </div>
-                <input type="submit" value="Generar Codigo" class="btn btn-default">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
-                  Ver codigo de barra
-              </button>
+                <div class="col-md-6">
+                    <h4>Label 2</h4>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="descripcion2" placeholder="Descripcion 2" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="code3" placeholder="Codigo 3" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="code4" placeholder="Codigo 4" required>
+                    </div>
+                    <input type="submit" value="Generar Codigo" class="btn btn-default">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+                      Ver codigo de barra
+                  </button>
+              </div>
           </form>
       </div>
   </div>
-  <div class="modal" tabindex="-1" id="modal" role="dialog">
+  <div class="modal hidden-print" tabindex="-1" id="modal" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header hidden-print">
@@ -113,21 +142,32 @@
               <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="modal-body" style="font-size:18px">
+      <div class="modal-body" style="font-size:15px; border: none;">
         @if (session()->has('var1'))
-        <div class="barcode text-center">
-            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var1'), 'C128',2,70,true)}} " alt="barcode"/>
-            <p>{{ session('var1') }}</p>
+        <div class="barcode">
+            <p>Tech Reuse - {{ session('desc1')  }}</p>
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var1'), 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ session('var1') }}</strong></p>
         </div>
         @endif
-        {{-- {!! DNS1D::getBarcodeSVG("4445645656", "PHARMA2T",3,33, true) !!} --}}
-        <br>
-        <br>
-        <br>
         @if (session()->has('var2'))
-        <div class="barcode text-center">
-            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var2'), 'C128',2,70,true)}} " alt="barcode"/>
-            <p>{{ session('var2') }}</p>
+        <div class="barcode">
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var2'), 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ session('var2') }}</strong></p>
+        </div>
+        @endif
+
+        @if (session()->has('var3'))
+        <div class="barcode">
+            <p>Tech Reuse - {{ session('desc2')  }}</p>
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var3'), 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ session('var3') }}</strong></p>
+        </div>
+        @endif
+        @if (session()->has('var4'))
+        <div class="barcode">
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var4'), 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ session('var4') }}</strong></p>
         </div>
         @endif
     </div>
@@ -138,12 +178,41 @@
 </div>
 </div>
 </div>
+
+<div id="print" class="barcode-container modal">
+    @if (session()->has('var1'))
+    <div class="barcode">
+        <p>Tech Reuse - {{ session('desc1')  }}</p>
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var1'), 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ session('var1') }}</strong></p>
+    </div>
+    @endif
+    @if (session()->has('var2'))
+    <div class="barcode">
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var2'), 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ session('var2') }}</strong></p>
+    </div>
+    @endif
+    
+    @if (session()->has('var3'))
+    <div class="barcode">
+        <p>Tech Reuse - {{ session('desc2')  }}</p>
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var3'), 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ session('var3') }}</strong></p>
+    </div>
+    @endif
+    @if (session()->has('var4'))
+    <div class="barcode">
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var4'), 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ session('var4') }}</strong></p>
+    </div>
+@endif</div>
 </body>
 <script  type="text/javascript">
     function printBarcode() {
-        // $('#modal').show();
+        $('#print').show();
         window.print();
-        // $('#modal').hide();
+        $('#print').hide();
     }
 </script>
 </html>

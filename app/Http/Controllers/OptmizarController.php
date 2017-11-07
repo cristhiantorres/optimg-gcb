@@ -45,7 +45,11 @@ class OptmizarController extends Controller
     {
         $var1 = $request->code1;
         $var2 = $request->code2;
+        $var3 = $request->code3;
+        $var4 = $request->code4;
+        $desc1 = $request->descripcion1;
+        $desc2 = $request->descripcion2;
         // return redirect()->back()->with('var1', [$var1]);
-        return redirect()->back()->with(['var1' => $var1, 'var2' => $var2]);
+        return redirect()->back()->with(['var1' => $var1, 'var2' => $var2, 'var3' => $var3, 'var4' => $var4, 'desc1' => $desc1, 'desc2' => $desc2]);
     }
 }
