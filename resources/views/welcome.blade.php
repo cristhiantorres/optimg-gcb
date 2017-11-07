@@ -145,7 +145,7 @@
       <div class="modal-body" style="font-size:15px; border: none;">
         @if (session()->has('var1'))
         <div class="barcode">
-            <p>Tech Reuse - {{ session('desc1')  }}</p>
+            <p>TechReuse - {{ session('desc1')  }}</p>
             <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var1'), 'C128',2,20,true)}} " alt="barcode"/>
             <p><strong>{{ session('var1') }}</strong></p>
         </div>
@@ -159,7 +159,7 @@
 
         @if (session()->has('var3'))
         <div class="barcode">
-            <p>Tech Reuse - {{ session('desc2')  }}</p>
+            <p>TechReuse - {{ session('desc2')  }}</p>
             <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var3'), 'C128',2,20,true)}} " alt="barcode"/>
             <p><strong>{{ session('var3') }}</strong></p>
         </div>
@@ -182,7 +182,7 @@
 <div id="print" class="barcode-container modal">
     @if (session()->has('var1'))
     <div class="barcode">
-        <p>Tech Reuse - {{ session('desc1')  }}</p>
+        <p>TechReuse - {{ session('desc1')  }}</p>
         <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var1'), 'C128',2,20,true)}} " alt="barcode"/>
         <p><strong>{{ session('var1') }}</strong></p>
     </div>
@@ -196,7 +196,7 @@
     
     @if (session()->has('var3'))
     <div class="barcode">
-        <p>Tech Reuse - {{ session('desc2')  }}</p>
+        <p>TechReuse - {{ session('desc2')  }}</p>
         <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var3'), 'C128',2,20,true)}} " alt="barcode"/>
         <p><strong>{{ session('var3') }}</strong></p>
     </div>
