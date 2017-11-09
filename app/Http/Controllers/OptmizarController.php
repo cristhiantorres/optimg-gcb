@@ -43,6 +43,8 @@ class OptmizarController extends Controller
 
     public function getCodeBar(Request $request)
     {
+        $request->session()->flush();
+        
         $var1 = $request->code1;
         $var2 = $request->code2;
         $var3 = $request->code3;
