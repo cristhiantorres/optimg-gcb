@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('optimizar', 'OptmizarController@optimizar');
 Route::get('getcodebar','OptmizarController@getCodeBar')->name('getcodebar');

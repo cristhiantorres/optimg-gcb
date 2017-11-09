@@ -44,7 +44,7 @@ class OptmizarController extends Controller
     public function getCodeBar(Request $request)
     {
         $request->session()->flush();
-        
+
         $var1 = $request->code1;
         $var2 = $request->code2;
         $var3 = $request->code3;
@@ -52,6 +52,7 @@ class OptmizarController extends Controller
         $desc1 = $request->descripcion1;
         $desc2 = $request->descripcion2;
         // return redirect()->back()->with('var1', [$var1]);
-        return redirect()->back()->with(['var1' => $var1, 'var2' => $var2, 'var3' => $var3, 'var4' => $var4, 'desc1' => $desc1, 'desc2' => $desc2]);
+        return view('welcome',compact('var1', 'var2', 'var3', 'var4', 'desc1', 'desc2'));
+        // return back()->with(['var1' => $var1, 'var2' => $var2, 'var3' => $var3, 'var4' => $var4, 'desc1' => $desc1, 'desc2' => $desc2]);
     }
 }

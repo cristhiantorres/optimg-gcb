@@ -143,32 +143,32 @@
           </button>
       </div>
       <div class="modal-body" style="font-size:15px; border: none;">
-        @if (session()->has('var1'))
+        @if (isset($var1))
         <div class="barcode">
-            <p>TechReuse - {{ session('desc1')  }}</p>
-            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var1'), 'C128',2,20,true)}} " alt="barcode"/>
-            <p><strong>{{ session('var1') }}</strong></p>
+            <p>TechReuse - {{ $desc1  }}</p>
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var1, 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ $var1 }}</strong></p>
         </div>
         @endif
-        @if (session()->has('var2'))
+        @if (isset($var2))
         <div class="barcode">
-            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var2'), 'C128',2,20,true)}} " alt="barcode"/>
-            <p><strong>{{ session('var2') }}</strong></p>
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var2, 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ $var2 }}</strong></p>
         </div>
         @endif
         <br>
         <br>
-        @if (session()->has('var3'))
+        @if (isset($var3))
         <div class="barcode">
-            <p>TechReuse - {{ session('desc2')  }}</p>
-            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var3'), 'C128',2,20,true)}} " alt="barcode"/>
-            <p><strong>{{ session('var3') }}</strong></p>
+            <p>TechReuse - {{ $desc2  }}</p>
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var3, 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ $var3 }}</strong></p>
         </div>
         @endif
-        @if (session()->has('var4'))
+        @if (isset($var4))
         <div class="barcode">
-            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var4'), 'C128',2,20,true)}} " alt="barcode"/>
-            <p><strong>{{ session('var4') }}</strong></p>
+            <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var4, 'C128',2,20,true)}} " alt="barcode"/>
+            <p><strong>{{ $var4 }}</strong></p>
         </div>
         @endif
     </div>
@@ -181,32 +181,32 @@
 </div>
 
 <div id="print" class="barcode-container modal">
-    @if (session()->has('var1'))
+    @if (isset($var1))
     <div class="barcode">
-        <p>TechReuse - {{ session('desc1')  }}</p>
-        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var1'), 'C128',2,20,true)}} " alt="barcode"/>
-        <p><strong>{{ session('var1') }}</strong></p>
+        <p>TechReuse - {{ $desc1  }}</p>
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var1, 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ $var1 }}</strong></p>
     </div>
     @endif
-    @if (session()->has('var2'))
+    @if (isset($var2))
     <div class="barcode">
-        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var2'), 'C128',2,20,true)}} " alt="barcode"/>
-        <p><strong>{{ session('var2') }}</strong></p>
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var2, 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ $var2 }}</strong></p>
     </div>
     @endif
     <br>
     <br>
-    @if (session()->has('var3'))
+    @if (isset($var3))
     <div class="barcode">
-        <p>TechReuse - {{ session('desc2')  }}</p>
-        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var3'), 'C128',2,20,true)}} " alt="barcode"/>
-        <p><strong>{{ session('var3') }}</strong></p>
+        <p>TechReuse - {{ $desc2  }}</p>
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var3, 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ $var3 }}</strong></p>
     </div>
     @endif
-    @if (session()->has('var4'))
+    @if (isset($var4))
     <div class="barcode">
-        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG(session('var4'), 'C128',2,20,true)}} " alt="barcode"/>
-        <p><strong>{{ session('var4') }}</strong></p>
+        <img src="data:image/svg+xml;utf8,{{DNS1D::getBarcodeSVG($var4, 'C128',2,20,true)}} " alt="barcode"/>
+        <p><strong>{{ $var4 }}</strong></p>
     </div>
 @endif</div>
 </body>
