@@ -156,7 +156,8 @@
             <p><strong>{{ session('var2') }}</strong></p>
         </div>
         @endif
-
+        <br>
+        <br>
         @if (session()->has('var3'))
         <div class="barcode">
             <p>TechReuse - {{ session('desc2')  }}</p>
@@ -193,7 +194,8 @@
         <p><strong>{{ session('var2') }}</strong></p>
     </div>
     @endif
-    
+    <br>
+    <br>
     @if (session()->has('var3'))
     <div class="barcode">
         <p>TechReuse - {{ session('desc2')  }}</p>
