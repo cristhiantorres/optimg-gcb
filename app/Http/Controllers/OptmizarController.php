@@ -22,7 +22,7 @@ class OptmizarController extends Controller
         $cont = 0;
         
         foreach ($files as $file) {
-            $file = strtolower($file);
+            // $file = strtolower($file);
             if (strpos($file, '.pdf')) {
 
               exec('convert -density 100x100 -quality 60 -compress jpeg '.$file.' '.$file.';');
